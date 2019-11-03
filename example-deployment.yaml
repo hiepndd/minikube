@@ -1,0 +1,20 @@
+apiVersion: example/v1beta1
+kind: Deployment
+metadata:
+  name: example-deployment
+  labels:
+  app: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-node
+  template:
+    metadata:
+      labels:
+        app: hello-node
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: hello-node
+          image: hiepng/hello-node:1.0
